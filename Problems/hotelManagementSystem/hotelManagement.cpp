@@ -1,14 +1,12 @@
 #include <bits/stdc++.h>
 #include <iostream>
 using namespace std;
-
 class Hotel {
   string Name;
   int id;
   Location hotelLocation;
   vector<Room> roomList;
 }
-
 class Location {
   int pin;
   string street;
@@ -16,8 +14,6 @@ class Location {
   string city;
   string country;
 }
-
-
 class Room {
   string roomNumber;
   RoomStyle roomStyle;
@@ -26,18 +22,14 @@ class Room {
   vector<RoomKey> roomKeys;
   vector<HouseKeepingLog> houseKeepingLogs;
 }
-
 enum RoomStyle {
     STANDARD,
     DELUXE,
     FAMILY_SUITE
 };
-
-
 enum RoomStatus {
   AVAILABLE , RESERVED , NOT_AVAILABLE , OCCUPIED , SERVICE_IN_PROGRESS
 }
-
 class RoomKey {
   string keyId;
   string barCode;
@@ -48,7 +40,6 @@ class RoomKey {
     void assignRoom(Room room);
   
 }
-
 class HouseKeepingLog {
   string description;
   // Date startDate;
@@ -57,8 +48,6 @@ class HouseKeepingLog {
   public : 
     void addRoom(Room room);
 }
-
-
 class Person {
   public:
     virtual void fun() = 0;
@@ -67,42 +56,33 @@ class Person {
     Account accountDetails;
     string phone;
 }
-
 class Account {
   string username;
   string password;
   AccountStatus accountStatus;
 }
-
 enum AccountStatus {
   ACTIVE , CLOSED , BLOCKED;
 }
-
 class HouseKeeper : public Person {
   public:
     vector<Room> getRoomService(string date);
 }
-
 class Search {
   public:
     vector<Room> searchRoom(RoomStyle roomStyle , string startDate , int duration);
 }
-
 class Booking{
   public:
     RoomBooking createBooking(Guest guestInfo);
     RoomBooking cancelBooking (int bookingId);
 }
-
-
 class Guest : public Person {
   Search searchObj;
   Booking bookingObj;
   public:
     vector<RoomBooking> getAllRoomBookings();
 }
-
-
 class Receptionist : public Person {
   Search searchObj;
   Booking bookingObj;
@@ -110,16 +90,12 @@ class Receptionist : public Person {
     void checkInGuest(Guest guest , RoomBooking bookingInfo);
     void checkOutGuest(Guest guest , RoomBooking bookingInfo);
 }
-
-
 class Admin : public Person {
   public:
     void addRoom (Room roomDetail);
     Room deleteRoom(string roomId);
     void editRoom(Room roomDetail);
 }
-
-
 class RoomBooking {
   string bookingId;
   string startDate;
@@ -129,12 +105,10 @@ class RoomBooking {
   vector<Room> roomInfo;
   BaseRoomCharge totalRoomCharge;
 }
-
 // Decorator Pattern is used to decorate prices here
 interface BaseRoomCharge {
   Double getCost();
 }
-
 class RoomCharge implements BaseRoomCharge {
   double cost;
   Double getCost(){
@@ -144,7 +118,6 @@ class RoomCharge implements BaseRoomCharge {
     this.cost = cost;
   }
 }
-
 class RoomServiceCharge implements BaseRoomCharge{
   double cost;
   BaseRoomCharge baseRoomCharge;

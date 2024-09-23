@@ -1,5 +1,11 @@
 package Problems.ticTacToe;
 
-public class main {
-  
-}
+
+  public static void main(String args[]) {
+      TicTacToeGame game = new TicTacToeGa
+    game.initializeGame();
+    System.out.println("ga");
+  }
+    
+
+

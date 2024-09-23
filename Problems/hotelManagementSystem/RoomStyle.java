@@ -1,3 +1,5 @@
+package Problems.hotelManagementSystem;
+
 import java.util.Date;
 import java.util.List;
 
@@ -27,15 +29,11 @@ class Room {
 
 }
 
-public enum RoomStyle {
+public enum roomStyle {
 	
 	STANDARD, DELUX, FAMILY_SUITE;
 }
 
-public enum RoomStatus {
-	
-	AVAILABLE, RESERVED, NOT_AVAILBLE, OCCUPIED, SERVICE_IN_PROGRESS;
-}
 
 class RoomKey {
 	
